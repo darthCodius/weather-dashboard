@@ -1,5 +1,4 @@
 import { useState } from "react";
-
 const _ = require("lodash");
 
 const API_KEY = "4881c56861c7fc6e33f556e4f8bd0234";
@@ -100,27 +99,14 @@ function WeatherDetails({ weatherData }) {
   const { main, wind, name } = weatherData;
 
   return (
-    <div className="table-container">
-      <table>
-        <caption className="city-name">City Name : {name}</caption>
-        <thead>
-          <tr>
-            <th>Feels Like🌡</th>
-            <th>Humidity💧</th>
-            <th>Wind Speed💨</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>
-              {main.feels_like} <sup>o</sup>C
-            </td>
-            <td>{main.humidity}%</td>
-            <td>{wind.speed} m/sec</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+    <>
+      <div className="details">
+        <h3>City Name : {name}</h3>
+        <p>Temperature : {main.feels_like} 🌡</p>
+        <p>Humidity : {main.humidity} 💧</p>
+        <p>Wind Speed : {wind.speed} 💨</p>
+      </div>
+    </>
   );
 }
 function Loader() {
